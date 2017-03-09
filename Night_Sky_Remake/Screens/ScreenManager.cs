@@ -20,8 +20,6 @@ namespace Night_Sky_Remake.Screens {
         Stack<GameScreen> screenStack = new Stack<GameScreen>();
         //Screens width and height
         Vector2 dimensions;
-        bool transition;
-
 
         public static ScreenManager Instance {
             get {
@@ -38,13 +36,12 @@ namespace Night_Sky_Remake.Screens {
         }
 
         public void AddScreen(GameScreen screen) {
-            transition = true;
             newScreen = screen;
         }
 
         public void Initialize() {
 
-            currentScreen = new SplashScreen();
+            currentScreen = new Splashscreen();
         }
 
         public void LoadContent(ContentManager Content) {
@@ -52,10 +49,7 @@ namespace Night_Sky_Remake.Screens {
             currentScreen.LoadContent(Content);
         }
         public void Update(GameTime gameTime) {
-            if (!transition)
-                currentScreen.Update(gameTime);
-            else
-                Transition(gameTime);
+            currentScreen.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
@@ -68,7 +62,6 @@ namespace Night_Sky_Remake.Screens {
             currentScreen.UnloadContent();
             currentScreen = newScreen;
             currentScreen.LoadContent(content);
-            transition = false;
 
 
         }

@@ -8,16 +8,17 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace Night_Sky_Remake.Screens {
-    class Splashscreen {
+    public class Splashscreen : GameScreen{
 
-        KeyboardState keyState;
+        //KeyboardState keyState;
         Texture2D image;
 
         public override void LoadContent(ContentManager Content) {
             base.LoadContent(Content);
-            image = Content.Load<Texture2D>("SplashScreen/TwosmomaniaLogo");
+            image = content.Load<Texture2D>("Background");
         }
 
         public override void UnloadContent() {
@@ -34,7 +35,7 @@ namespace Night_Sky_Remake.Screens {
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(image, new Rectangle(0, 0, 800, 600), Color.White);
+            spriteBatch.Draw(image, new Rectangle(0, 0, 800, 600), Color.Yellow);
         }
 
 
